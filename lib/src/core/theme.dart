@@ -32,6 +32,7 @@ class ZephyrTheme extends StatelessWidget {
       child: DefaultTextStyle(
         style: TextStyle(
           color: data.foregroundColor,
+          fontFamily: data.fontFamily,
         ),
         child: child,
       ),
@@ -60,10 +61,12 @@ class _InheritedZephyrTheme extends InheritedTheme {
 
 class ZephyrThemeData with Diagnosticable {
   final Color primaryColor;
+  final String fontFamily;
   final Brightness? _brightness;
 
   const ZephyrThemeData({
     this.primaryColor = Colors.burple,
+    this.fontFamily = 'SF Pro Rounded',
     Brightness? brightness,
   }) : _brightness = brightness;
 
