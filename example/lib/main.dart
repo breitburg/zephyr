@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:zephyr/zephyr.dart';
 
 void main() {
@@ -10,8 +9,8 @@ class MarshmallowApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ZephyrApp(
       title: 'Marshmallow',
-      theme: ZephyrThemeData(
-        backgroundColor: Colors.white,
+      theme: ThemeData(
+        backgroundColor: Color.fromARGB(255, 218, 255, 196),
       ),
       home: FirstScreen(),
     );
@@ -25,10 +24,13 @@ class FirstScreen extends StatelessWidget {
       child: Center(
         child: GestureDetector(
           child: Text('Hello, world'),
-          onTap: () => Navigator.of(context)
-              .push(ZephyrPageRoute(builder: (BuildContext context) {
-            return SecondScreen();
-          })),
+          onTap: () => Navigator.of(context).push(
+            ZephyrPageRoute(
+              builder: (BuildContext context) {
+                return SecondScreen();
+              },
+            ),
+          ),
         ),
       ),
     );
@@ -38,8 +40,8 @@ class FirstScreen extends StatelessWidget {
 class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ZephyrTheme(
-      data: ZephyrThemeData(backgroundColor: Colors.black),
+    return Theme(
+      data: ThemeData(backgroundColor: Colors.black),
       child: Chrome(
         child: Center(
           child: Column(

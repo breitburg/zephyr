@@ -1,25 +1,24 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:zephyr/zephyr.dart';
 
-class ZephyrTheme extends StatelessWidget {
-  const ZephyrTheme({
+class Theme extends StatelessWidget {
+  const Theme({
     Key? key,
     required this.data,
     required this.child,
   }) : super(key: key);
 
-  final ZephyrThemeData data;
+  final ThemeData data;
   final Widget child;
 
-  static ZephyrThemeData of(BuildContext context) {
+  static ThemeData of(BuildContext context) {
     return context
         .dependOnInheritedWidgetOfExactType<_InheritedZephyrTheme>()!
         .data;
   }
 
-  static ZephyrThemeData? maybeOf(BuildContext context) {
+  static ThemeData? maybeOf(BuildContext context) {
     return context
         .dependOnInheritedWidgetOfExactType<_InheritedZephyrTheme>()
         ?.data;
@@ -44,7 +43,7 @@ class _InheritedZephyrTheme extends InheritedTheme {
     required Widget child,
   }) : super(key: key, child: child);
 
-  final ZephyrThemeData data;
+  final ThemeData data;
 
   @override
   bool updateShouldNotify(covariant _InheritedZephyrTheme oldWidget) =>
@@ -56,13 +55,13 @@ class _InheritedZephyrTheme extends InheritedTheme {
   }
 }
 
-class ZephyrThemeData with Diagnosticable {
+class ThemeData with Diagnosticable {
   final Color backgroundColor;
   final Color? _foregroundColor;
   final TextStyle? _textStyle;
   final Brightness? _brightness;
 
-  const ZephyrThemeData({
+  const ThemeData({
     this.backgroundColor = Colors.burple,
     Color? foregroundColor,
     Brightness? brightness,

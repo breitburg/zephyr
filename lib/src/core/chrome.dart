@@ -1,5 +1,4 @@
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:zephyr/zephyr.dart';
 
 class Chrome extends StatelessWidget {
@@ -12,7 +11,7 @@ class Chrome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appTheme = ZephyrTheme.of(context);
+    var appTheme = Theme.of(context);
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: appTheme.systemUiOverlayStyle,

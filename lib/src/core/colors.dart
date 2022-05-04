@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'dart:ui' show Color;
 
 class Colors {
   static const black = Color.fromRGBO(0, 0, 0, 1);

@@ -1,10 +1,9 @@
-import 'package:flutter/widgets.dart';
 import 'package:zephyr/zephyr.dart';
 
 class ZephyrApp extends StatelessWidget {
   final Widget home;
   final String title;
-  final ZephyrThemeData theme;
+  final ThemeData theme;
   final List<Locale> locales;
   final bool showPerformanceOverlay,
       checkerboardRasterCacheImages,
@@ -17,7 +16,7 @@ class ZephyrApp extends StatelessWidget {
     Key? key,
     required this.home,
     this.title = '',
-    this.theme = const ZephyrThemeData(),
+    this.theme = const ThemeData(),
     this.locales = const [Locale('en', 'US'), Locale('ru', 'RU')],
     this.showPerformanceOverlay = false,
     this.checkerboardRasterCacheImages = false,
@@ -44,7 +43,7 @@ class ZephyrApp extends StatelessWidget {
         return ZephyrPageRoute(settings: settings, builder: builder);
       },
       builder: (BuildContext context, Widget? child) {
-        return ZephyrTheme(
+        return Theme(
           data: theme,
           child: child ?? const SizedBox.shrink(),
         );
