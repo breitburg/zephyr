@@ -30,10 +30,7 @@ class ZephyrTheme extends StatelessWidget {
     return _InheritedZephyrTheme(
       data: data,
       child: DefaultTextStyle(
-        style: TextStyle(
-          color: data.foregroundColor,
-          fontFamily: data.fontFamily,
-        ),
+        style: data.textStyle,
         child: child,
       ),
     );
@@ -60,28 +57,47 @@ class _InheritedZephyrTheme extends InheritedTheme {
 }
 
 class ZephyrThemeData with Diagnosticable {
-  final Color primaryColor;
-  final String fontFamily;
+  final Color backgroundColor;
+  final Color? _foregroundColor;
+  final TextStyle? _textStyle;
   final Brightness? _brightness;
 
   const ZephyrThemeData({
-    this.primaryColor = Colors.burple,
-    this.fontFamily = 'SF Pro Rounded',
+    this.backgroundColor = Colors.burple,
+    Color? foregroundColor,
     Brightness? brightness,
-  }) : _brightness = brightness;
+    TextStyle? textStyle,
+  })  : _brightness = brightness,
+        _textStyle = textStyle,
+        _foregroundColor = foregroundColor;
 
   Brightness get brightness {
-    return _brightness ??
-        (primaryColor.computeLuminance() < .5
-            ? Brightness.dark
-            : Brightness.light);
+    if (_brightness != null) return _brightness!;
+
+    var bright = _foregroundColor == null
+        ? backgroundColor.computeLuminance() > .5
+        : _foregroundColor!.computeLuminance() < .5;
+
+    return bright ? Brightness.light : Brightness.dark;
   }
 
-  Color get foregroundColor =>
-      brightness == Brightness.light ? Colors.black : Colors.white;
+  TextStyle get textStyle {
+    return _textStyle ??
+        TextStyle(
+          color: foregroundColor,
+          fontFamily: 'SF Pro Rounded',
+          fontSize: 20,
+        );
+  }
 
-  SystemUiOverlayStyle get systemUiOverlayStyle =>
-      brightness == Brightness.light
-          ? SystemUiOverlayStyle.dark
-          : SystemUiOverlayStyle.light;
+  Color get foregroundColor {
+    return _foregroundColor ??
+        (brightness == Brightness.light ? Colors.black : Colors.white);
+  }
+
+  SystemUiOverlayStyle get systemUiOverlayStyle {
+    return brightness == Brightness.light
+        ? SystemUiOverlayStyle.dark
+        : SystemUiOverlayStyle.light;
+  }
 }

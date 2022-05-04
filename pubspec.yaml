@@ -1,7 +1,6 @@
 name: zephyr
 description: A modern and cute design system, inspired by Zenly, Snapchat and Dualingo
 version: 0.0.1
-homepage: https://zephyr.figly.ru/
 
 environment:
   sdk: ">=2.16.2 <3.0.0"

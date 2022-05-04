@@ -5,32 +5,50 @@ class ZephyrApp extends StatelessWidget {
   final Widget home;
   final String title;
   final ZephyrThemeData theme;
+  final List<Locale> locales;
+  final bool showPerformanceOverlay,
+      checkerboardRasterCacheImages,
+      checkerboardOffscreenLayers,
+      showSemanticsDebugger,
+      debugShowWidgetInspector,
+      debugShowCheckedModeBanner;
 
   const ZephyrApp({
     Key? key,
     required this.home,
     this.title = '',
     this.theme = const ZephyrThemeData(),
+    this.locales = const [Locale('en', 'US'), Locale('ru', 'RU')],
+    this.showPerformanceOverlay = false,
+    this.checkerboardRasterCacheImages = false,
+    this.checkerboardOffscreenLayers = false,
+    this.showSemanticsDebugger = false,
+    this.debugShowWidgetInspector = false,
+    this.debugShowCheckedModeBanner = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ZephyrTheme(
-      data: theme,
-      child: WidgetsApp(
-        color: theme.primaryColor,
-        home: home,
-        title: title,
-        pageRouteBuilder: <T>(RouteSettings settings, WidgetBuilder builder) {
-          return ZephyrPageRoute(settings: settings, builder: builder);
-        },
-        builder: (BuildContext context, Widget? child) {
-          return ZephyrTheme(
-            data: theme,
-            child: child ?? const SizedBox.shrink(),
-          );
-        },
-      ),
+    return WidgetsApp(
+      home: home,
+      title: title,
+      supportedLocales: locales,
+      color: theme.backgroundColor,
+      showPerformanceOverlay: showPerformanceOverlay,
+      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+      showSemanticsDebugger: showSemanticsDebugger,
+      debugShowWidgetInspector: debugShowWidgetInspector,
+      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+      pageRouteBuilder: <T>(RouteSettings settings, WidgetBuilder builder) {
+        return ZephyrPageRoute(settings: settings, builder: builder);
+      },
+      builder: (BuildContext context, Widget? child) {
+        return ZephyrTheme(
+          data: theme,
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
     );
   }
 }

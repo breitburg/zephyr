@@ -31,8 +31,10 @@ class ZephyrPageRoute<T> extends PageRoute<T> {
       scopesRoute: true,
       explicitChildNodes: true,
       child: FadeTransition(
-        opacity:
-            CurvedAnimation(parent: animation, curve: Curves.easeInOutCirc),
+        opacity: CurvedAnimation(
+          parent: animation,
+          curve: Curves.ease,
+        ),
         child: result,
       ),
     );
