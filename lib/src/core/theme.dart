@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:zephyr/zephyr.dart';
 
+const Duration kThemeAnimationDuration = Duration(milliseconds: 200);
+
 class Theme extends StatelessWidget {
   const Theme({
     Key? key,
@@ -28,8 +30,9 @@ class Theme extends StatelessWidget {
   Widget build(BuildContext context) {
     return _InheritedZephyrTheme(
       data: data,
-      child: DefaultTextStyle(
-        style: data.textStyle,
+      child: AnimatedDefaultTextStyle(
+        duration: kThemeAnimationDuration,
+        style: data.typography.normal,
         child: child,
       ),
     );
@@ -58,45 +61,47 @@ class _InheritedZephyrTheme extends InheritedTheme {
 class ThemeData with Diagnosticable {
   final Color backgroundColor;
   final Color? _foregroundColor;
-  final TextStyle? _textStyle;
+  final Typography? _typography;
   final Brightness? _brightness;
 
   const ThemeData({
     this.backgroundColor = Colors.burple,
     Color? foregroundColor,
     Brightness? brightness,
-    TextStyle? textStyle,
+    Typography? typography,
   })  : _brightness = brightness,
-        _textStyle = textStyle,
+        _typography = typography,
         _foregroundColor = foregroundColor;
 
   Brightness get brightness {
     if (_brightness != null) return _brightness!;
 
-    var bright = _foregroundColor == null
+    var contrast = _foregroundColor == null
         ? backgroundColor.computeLuminance() > .5
         : _foregroundColor!.computeLuminance() < .5;
 
-    return bright ? Brightness.light : Brightness.dark;
+    return contrast ? Brightness.light : Brightness.dark;
   }
 
-  TextStyle get textStyle {
-    return _textStyle ??
-        TextStyle(
-          color: foregroundColor,
-          fontFamily: 'SF Pro Rounded',
-          fontSize: 20,
-        );
+  Typography get typography {
+    return _typography ?? Typography.fromTheme(this);
   }
 
   Color get foregroundColor {
-    return _foregroundColor ??
-        (brightness == Brightness.light ? Colors.black : Colors.white);
+    return _foregroundColor ?? (bright ? Colors.black : Colors.white);
   }
 
   SystemUiOverlayStyle get systemUiOverlayStyle {
-    return brightness == Brightness.light
-        ? SystemUiOverlayStyle.dark
-        : SystemUiOverlayStyle.light;
+    return bright ? SystemUiOverlayStyle.dark : SystemUiOverlayStyle.light;
+  }
+
+  bool get bright => brightness == Brightness.light;
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<Brightness>('brightness', brightness));
+    properties.add(ColorProperty('foregroundColor', foregroundColor));
+    properties.add(DiagnosticsProperty<Typography>('typography', typography));
   }
 }

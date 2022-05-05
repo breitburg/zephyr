@@ -15,8 +15,9 @@ class Chrome extends StatelessWidget {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: appTheme.systemUiOverlayStyle,
-      child: Container(
+      child: AnimatedContainer(
         color: appTheme.backgroundColor,
+        duration: kThemeAnimationDuration,
         child: child,
       ),
     );

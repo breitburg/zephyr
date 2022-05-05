@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:zephyr/zephyr.dart';
 
 class ZephyrPageRoute<T> extends PageRoute<T> {
   final bool _maintainState;
@@ -50,5 +50,5 @@ class ZephyrPageRoute<T> extends PageRoute<T> {
   bool get maintainState => _maintainState;
 
   @override
-  Duration get transitionDuration => const Duration(milliseconds: 250);
+  Duration get transitionDuration => kThemeAnimationDuration;
 }

@@ -9,9 +9,7 @@ class MarshmallowApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ZephyrApp(
       title: 'Marshmallow',
-      theme: ThemeData(
-        backgroundColor: Color.fromARGB(255, 218, 255, 196),
-      ),
+      theme: ThemeData(),
       home: FirstScreen(),
     );
   }
@@ -23,7 +21,7 @@ class FirstScreen extends StatelessWidget {
     return Chrome(
       child: Center(
         child: GestureDetector(
-          child: Text('Hello, world'),
+          child: Text('Tap here'),
           onTap: () => Navigator.of(context).push(
             ZephyrPageRoute(
               builder: (BuildContext context) {
@@ -41,14 +39,14 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(backgroundColor: Colors.black),
+      data: ThemeData(backgroundColor: Color.fromARGB(255, 255, 203, 203)),
       child: Chrome(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-                child: Text('Back ↩'),
+                child: Text('Tap to go back'),
                 onTap: () => Navigator.of(context).pop(),
               ),
             ],
