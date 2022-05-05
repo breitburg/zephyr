@@ -29,24 +29,29 @@ class Typography with Diagnosticable {
         fontWeight: FontWeight.w700,
         fontFamily: fontFamily,
         color: theme.foregroundColor,
+        package: 'zephyr',
       ),
       normal: TextStyle(
         fontSize: 21,
         fontWeight: FontWeight.w600,
         fontFamily: fontFamily,
         color: theme.foregroundColor,
+        package: 'zephyr',
       ),
       large: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.w700,
         fontFamily: fontFamily,
         color: theme.foregroundColor,
+        package: 'zephyr',
       ),
       extraLarge: TextStyle(
-        fontSize: 32,
-        fontWeight: FontWeight.w700,
+        fontSize: 38,
+        fontWeight: FontWeight.w800,
         fontFamily: fontFamily,
         color: theme.foregroundColor,
+        package: 'zephyr',
+        height: 1,
       ),
     );
   }

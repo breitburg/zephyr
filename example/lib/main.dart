@@ -38,21 +38,30 @@ class FirstScreen extends StatelessWidget {
 class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(backgroundColor: Color.fromARGB(255, 255, 203, 203)),
-      child: Chrome(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                child: Text('Tap to go back'),
-                onTap: () => Navigator.of(context).pop(),
+    return Builder(
+      builder: (BuildContext context) {
+        return Chrome(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Get together\nwith friends\nat Fetely',
+                    style: Theme.of(context).typography.extraLarge,
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    child: Text('Tap to go back'),
+                    onTap: () => Navigator.of(context).pop(),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
