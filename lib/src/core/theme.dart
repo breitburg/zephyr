@@ -32,7 +32,7 @@ class Theme extends StatelessWidget {
       data: data,
       child: AnimatedDefaultTextStyle(
         duration: kThemeAnimationDuration,
-        style: data.typography.normal,
+        style: data.typography.body,
         child: child,
       ),
     );
