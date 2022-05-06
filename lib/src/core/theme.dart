@@ -97,6 +97,16 @@ class ThemeData with Diagnosticable {
 
   bool get bright => brightness == Brightness.light;
 
+  ThemeData dim() {
+    return ThemeData(
+      backgroundColor: Colors.black,
+      foregroundColor: backgroundColor.computeLuminance() < .05
+          ? Colors.white
+          : backgroundColor,
+      brightness: Brightness.dark,
+    );
+  }
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);

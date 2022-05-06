@@ -30,8 +30,9 @@ class Typography with Diagnosticable {
         fontSize: 16,
         fontWeight: FontWeight.w700,
         fontFamily: fontFamily,
-        color: theme.foregroundColor,
+        color: theme.foregroundColor.withOpacity(.3),
         package: 'zephyr',
+        height: 1.2,
       ),
       body: TextStyle(
         fontSize: 20,
@@ -39,6 +40,7 @@ class Typography with Diagnosticable {
         fontFamily: fontFamily,
         color: theme.foregroundColor,
         package: 'zephyr',
+        height: 1.2,
       ),
       title: TextStyle(
         fontSize: 26,
@@ -46,6 +48,7 @@ class Typography with Diagnosticable {
         fontFamily: fontFamily,
         color: theme.foregroundColor,
         package: 'zephyr',
+        height: 1.2,
       ),
       large: TextStyle(
         fontSize: 34,
@@ -53,7 +56,6 @@ class Typography with Diagnosticable {
         fontFamily: fontFamily,
         color: theme.foregroundColor,
         package: 'zephyr',
-        letterSpacing: -1,
         height: 1,
       ),
       gigantic: TextStyle(
