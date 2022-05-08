@@ -30,7 +30,7 @@ class Typography with Diagnosticable {
         fontSize: 16,
         fontWeight: FontWeight.w700,
         fontFamily: fontFamily,
-        color: theme.foregroundColor.withOpacity(.3),
+        color: theme.foregroundColor.withOpacity(.5),
         package: 'zephyr',
         height: 1.2,
       ),

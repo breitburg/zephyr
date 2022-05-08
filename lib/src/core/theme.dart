@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:zephyr/zephyr.dart';
+import 'package:flutter/widgets.dart';
+import 'package:zephyr/src/core/colors.dart';
+import 'package:zephyr/src/core/typography.dart';
 
 const Duration kThemeAnimationDuration = Duration(milliseconds: 200);
 

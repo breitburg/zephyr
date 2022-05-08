@@ -1,5 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:zephyr/zephyr.dart';
+import 'package:flutter/widgets.dart';
+import 'package:zephyr/src/core/route.dart';
+import 'package:zephyr/src/core/theme.dart';
 
 class ZephyrApp extends StatelessWidget {
   final Widget home;

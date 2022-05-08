@@ -8,7 +8,7 @@
 PRODUCT_NAME = marshmallow
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.breitburg.marshmallow.marshmallow
+PRODUCT_BUNDLE_IDENTIFIER = com.breitburg.marshmallow
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 com.breitburg.marshmallow. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 com.breitburg. All rights reserved.

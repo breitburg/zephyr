@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:zephyr/zephyr.dart';
+import 'package:flutter/widgets.dart';
+import 'package:zephyr/src/core/theme.dart';
 
 class Chrome extends StatelessWidget {
   final Widget child;

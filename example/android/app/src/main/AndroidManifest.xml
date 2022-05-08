@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.breitburg.marshmallow.marshmallow">
+    package="com.breitburg.marshmallow">
    <application
         android:label="marshmallow"
         android:name="${applicationName}"

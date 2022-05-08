@@ -1,4 +1,4 @@
-package com.breitburg.marshmallow.marshmallow
+package com.breitburg.marshmallow
 
 import io.flutter.embedding.android.FlutterActivity
 
