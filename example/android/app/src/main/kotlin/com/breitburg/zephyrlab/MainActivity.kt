@@ -1,4 +1,4 @@
-package com.breitburg.marshmallow
+package com.breitburg.zephyrlab
 
 import io.flutter.embedding.android.FlutterActivity
 
