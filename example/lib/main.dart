@@ -30,11 +30,12 @@ class _FirstScreenState extends State<FirstScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Вы тыкнули $times раз'),
-            SizedBox(height: 10),
+            Text('You have tapped $times times'),
+            SizedBox(height: 15),
             PushButton(
-                child: Text('Плюс один'),
-                onTap: () => setState(() => times += 1)),
+              child: Text('Add'),
+              onTap: () => setState(() => times += 1),
+            ),
           ],
         ),
       ),
