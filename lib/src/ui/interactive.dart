@@ -71,13 +71,16 @@ class _InteractableState extends State<Interactable>
   Future<void> _onTapped([dynamic event]) async {
     await HapticFeedback.lightImpact();
     await _controller.forward();
-
-    widget.onTap();
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () async {
+        await _onTapped();
+        widget.onTap();
+        await _onCanceled();
+      },
       onTapDown: _onTapped,
       onTapUp: _onCanceled,
       onTapCancel: _onCanceled,
