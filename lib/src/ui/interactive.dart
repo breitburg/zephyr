@@ -64,12 +64,13 @@ class _InteractableState extends State<Interactable>
   }
 
   Future<void> _onCanceled([dynamic event]) async {
-    await HapticFeedback.lightImpact();
+    if (_controller.status == AnimationStatus.reverse)
+      HapticFeedback.lightImpact();
     await _controller.reverse();
   }
 
   Future<void> _onTapped([dynamic event]) async {
-    await HapticFeedback.lightImpact();
+    HapticFeedback.lightImpact();
     await _controller.forward();
   }
 
