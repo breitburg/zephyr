@@ -1,11 +1,11 @@
 {
-    "name": "zephyrlab",
-    "short_name": "zephyrlab",
+    "name": "Zephyr Lab",
+    "short_name": "Zephyr",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#9327FF",
+    "theme_color": "#9327FF",
+    "description": "Open-source utility that helps to test Zephyr design system framework implementation.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
