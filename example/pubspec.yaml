@@ -27,6 +27,7 @@ flutter_icons:
   windows: true
   web: true
   image_path: assets/icon.png
+  image_path_macos: assets/macos_icon.png
 
 flutter:
   uses-material-design: false
