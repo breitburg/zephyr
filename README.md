@@ -29,5 +29,5 @@ ZephyrApp(
 
 At the `example/` directory you can find the "Zephyr Lab". A utility that helps to test Zephyr design system framework.
 
-- [Get the latest build from TestFlight](https://testflight.apple.com/join/8Kby2eKK).
+- [Get the latest build from TestFlight](https://testflight.apple.com/join/8Kby2eKK)
 - [Open web-version](https://zephyrlab.breitburg.com/)

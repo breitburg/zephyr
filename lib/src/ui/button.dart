@@ -25,7 +25,15 @@ class PushButton extends StatelessWidget {
         constraints: BoxConstraints.tightFor(height: 55),
         child: Theme(
           data: Theme.of(context).dim(),
-          child: child,
+          child: Builder(
+            builder: (BuildContext context) {
+              return DefaultTextStyle(
+                child: child,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).typography.body,
+              );
+            },
+          ),
         ),
       ),
     );

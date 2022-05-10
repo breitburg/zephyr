@@ -51,7 +51,7 @@ class _InteractableState extends State<Interactable>
     );
 
     _scale = _controller.drive(
-      CurveTween(curve: Curves.easeInOutCirc),
+      CurveTween(curve: Curves.easeInOutCubic),
     );
 
     super.initState();
